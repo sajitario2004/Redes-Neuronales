@@ -30,6 +30,8 @@ plt.xlabel("# Epoca")
 plt.ylabel("Magnitud de pérdida")
 plt.plot(historial.history["loss"])
 
-print("Hagamos una predicción!")
-resultado = modelo.predict([100.0])
-print("El resultado es " + str(resultado) + " fahrenheit!")
+print("Hagamos una predicción! introduce un numero para transformarlo a fahrenheit: ")
+cels_num = float(input(""))
+resultado_calculado = (9/5)*cels_num+32
+resultado_ia = modelo.predict(np.array([cels_num]))
+print("El resultado del modelo es " + str(resultado_ia) + " fahrenheit y el resultado que calculamos con la formula matematica es " + str(resultado_calculado) + " fahrenheit")
